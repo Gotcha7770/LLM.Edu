@@ -1,5 +1,5 @@
 ﻿#!/usr/bin/env dotnet
-#:package Microsoft.ML.OnnxRuntimeGenAI.Cuda@0.17.1
+#:package Microsoft.ML.OnnxRuntimeGenAI.Cuda@0.18.0
 
 using Microsoft.ML.OnnxRuntimeGenAI;
 
@@ -11,7 +11,7 @@ using var genParams = new GeneratorParams(model);
 genParams.SetSearchOption("max_length", 512);
 
 // Промпт в формате Phi-3
-var prompt = "<|user|>\nРасскажи анекдот про .NET<|end|>\n<|assistant|>";
+var prompt = "<|user|>\nTell a joke about .NET<|end|>\n<|assistant|>";
 var tokens = tokenizer.Encode(prompt);
 
 using var generator = new Generator(model, genParams);
@@ -22,7 +22,7 @@ while (!generator.IsDone())
 {
     generator.GenerateNextToken();
     var seq = generator.GetSequence(0);
-    
+
     // seq[^1] выдает только новые токены
     Console.Write(stream.Decode(seq[^1]));
 }
