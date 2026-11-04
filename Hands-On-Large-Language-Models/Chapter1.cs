@@ -3,15 +3,15 @@
 
 using Microsoft.ML.OnnxRuntimeGenAI;
 
-const string path = @"D:\LLM\Models\phi3-mini-cuda-int4";
+const string path = @"D:\LLM\FoundryCache\Microsoft\Phi-4-mini-instruct-cuda-gpu-5\v5";
 using var model = new Model(path);
 using var tokenizer = new Tokenizer(model);
 
 using var genParams = new GeneratorParams(model);
 genParams.SetSearchOption("max_length", 512);
 
-// Промпт в формате Phi-3
-var prompt = "<|user|>\nTell a joke about .NET<|end|>\n<|assistant|>";
+// Phi-3 format prompt
+const string prompt = "<|user|>\nTell a joke about .NET<|end|>\n<|assistant|>";
 var tokens = tokenizer.Encode(prompt);
 
 using var generator = new Generator(model, genParams);
@@ -23,6 +23,6 @@ while (!generator.IsDone())
     generator.GenerateNextToken();
     var seq = generator.GetSequence(0);
 
-    // seq[^1] выдает только новые токены
+    // seq[^1] select only new tokens
     Console.Write(stream.Decode(seq[^1]));
 }

@@ -1,9 +1,9 @@
 ﻿<Solution>
-    <Folder Name="/Solution Items/">
-        <File Path="Chapter1.cs" />
-        <File Path="Chapter1_Extensions_AI.cs" />
-        <File Path="Chapter2.cs" />
-        <File Path="README.md" />
-    </Folder>
-    <Project Path="LLM.Edu/LLM.Edu.csproj" />
+  <Folder Name="/Solution Items/">
+    <File Path="README.md"/>
+    <File Path="Hands-On-Large-Language-Models/Chapter1.cs"/>
+    <File Path="Hands-On-Large-Language-Models/Chapter1_Extensions_AI.cs"/>
+    <File Path="Hands-On-Large-Language-Models/Chapter2.cs"/>
+  </Folder>
+  <Project Path="LLM.Edu/LLM.Edu.csproj"/>
 </Solution>
